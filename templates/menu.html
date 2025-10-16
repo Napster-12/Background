@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6169339058146128"
+     crossorigin="anonymous"></script>
+
+  <title>FAYA Tech — Shop iPhones</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- AOS & Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #007bff;
+      --secondary: #00d4ff;
+      --accent: #ff5c8d;
+      --dark: #0a2342;
+      --light: #f7f9fb;
+      --transition: all 0.35s ease;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .navbar-brand { font-weight: 700; color: var(--dark); font-size: 1.6rem; }
+    .nav-link { color: #333 !important; font-weight: 600; margin: 0 8px; }
+    .nav-link:hover { color: var(--primary) !important; }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 60vh;
+      background: linear-gradient(120deg, var(--primary) 50%, var(--secondary) 50%);
+      color: white;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero .text {
+      flex: 1 1 50%;
+      padding: 80px 50px;
+      animation: fadeInLeft 1s ease;
+    }
+    .hero .image {
+      flex: 1 1 50%;
+      background: url('/static/images/tech_hero.jpg') center/cover no-repeat;
+      min-height: 300px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      background: linear-gradient(90deg, #fff, #cce4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p { font-size: 1.1rem; margin-top: 15px; max-width: 500px; color: #eaf6ff; }
+
+    @keyframes fadeInLeft {
+      from {opacity:0; transform:translateX(-50px);}
+      to {opacity:1; transform:translateX(0);}
+    }
+
+    /* Products Grid */
+    .products { padding: 80px 20px; }
+    .products h2 { text-align:center; margin-bottom:40px; font-family: 'Playfair Display', serif; color: var(--dark); }
+
+    /* Filter Buttons */
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .filter-buttons button {
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+      background: var(--primary);
+      color: white;
+    }
+    .filter-buttons button:hover, .filter-buttons button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .product-card {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+      transition: var(--transition);
+    }
+    .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .product-card img { width:100%; height:250px; object-fit: contain; margin-bottom:15px; border-radius: var(--radius); }
+    .product-card h5 { font-weight: 700; margin-bottom: 10px; color: var(--primary); }
+    .product-card p { font-size:0.95rem; margin-bottom:10px; color: #555; }
+    .product-card .price { font-weight: 700; color: var(--accent); margin-bottom:15px; font-size:1.1rem; }
+    .product-card .btn-buy {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color:white; border:none; border-radius: 50px; padding:8px 20px; font-weight:600;
+      transition: var(--transition);
+    }
+    .product-card .btn-buy:hover { background: var(--accent); }
+
+    /* Footer */
+    footer { background: var(--dark); color: #ccc; text-align: center; padding:50px 0 20px; }
+    footer a { color: var(--secondary); margin: 0 10px; transition: var(--transition); }
+    footer a:hover { color: white; }
+
+    /* Floating Cart Icon */
+    #floating-cart {
+      position: fixed;
+      top: 80px;
+      right: 25px;
+      background: var(--primary);
+      color: white;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      z-index: 9999;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    #floating-cart:hover {
+      background: var(--accent);
+      transform: scale(1.15) translateY(-3px);
+    }
+    #cart-count {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      animation: pop 0.3s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.4); }
+      100% { transform: scale(1); }
+    }
+
+    @media(max-width: 991px){
+      .hero { flex-direction: column; }
+      .hero .text, .hero .image { flex:1 1 100%; padding:60px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">FAYA Tech</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/menu">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">About</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Floating Cart Icon -->
+  <a href="/cart" id="floating-cart" title="View Cart">
+    <i class="bi bi-cart-fill"></i>
+    <span id="cart-count">0</span>
+  </a>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="text" data-aos="fade-right">
+      <h1>Shop Our iPhones</h1>
+      <p>Discover the latest iPhone models, specs, and pricing — all at FAYA Tech’s curated selection.</p>
+    </div>
+    <div class="image" data-aos="fade-left"></div>
+  </section>
+
+  <!-- Products -->
+  <section class="products container">
+    <h2 data-aos="fade-up">Our iPhone Collection</h2>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons" data-aos="fade-up">
+      <button class="active" onclick="filterProducts('all', event)">All</button>
+      <button onclick="filterProducts('new', event)">Brand New</button>
+      <button onclick="filterProducts('preowned', event)">Pre-Owned</button>
+    </div>
+
+    <div class="row g-4" id="productsContainer">
+      <!-- Product cards inserted dynamically -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 FAYA Tech. All rights reserved.</p>
+    <p>
+      <a href="#"><i class="bi bi-facebook"></i></a>
+      <a href="#"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-linkedin"></i></a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    const products = [
+      // 🟤 Pre-Owned (iPhone 8 - iPhone 16)
+      { name:"iPhone 8", specs:"64GB", price:3599, image:"/static/images/iphone_8.jpeg", condition:"preowned" },
+      { name:"iPhone X", specs:"64GB", price:4299, image:"/static/images/iphone_x.jpeg", condition:"preowned" },
+      { name:"iPhone XR", specs:"64GB", price:4799, image:"/static/images/iphone_xr.jpeg", condition:"preowned" },
+      { name:"iPhone 11", specs:"64GB", price:5699, image:"/static/images/iphone_11.jpeg", condition:"preowned" },
+      { name:"iPhone 12", specs:"128GB", price:6499, image:"/static/images/iphone_12.jpeg", condition:"preowned" },
+      { name:"iPhone 13", specs:"128GB", price:9849, image:"/static/images/iphone_13.jpeg", condition:"preowned" },
+      { name:"iPhone 14", specs:"128GB", price:11999, image:"/static/images/iphone_14.jpeg", condition:"preowned" },
+      { name:"iPhone 15", specs:"128GB", price:14199, image:"/static/images/iphone_15.jpeg", condition:"preowned" },
+      { name:"iPhone 16", specs:"256GB", price:15499, image:"/static/images/iphone_16.jpeg", condition:"preowned" },
+
+      // 🟢 Brand New (iPhone XR - iPhone 17)
+      { name:"iPhone XR", specs:"64GB", price:5499, image:"/static/images/iphone_xr.jpeg", condition:"new" },
+      { name:"iPhone 11", specs:"128GB", price:6499, image:"/static/images/iphone_11.jpeg", condition:"new" },
+      { name:"iPhone 12", specs:"64GB", price:7599, image:"/static/images/iphone_12.jpeg", condition:"new" },
+      { name:"iPhone 13", specs:"128GB", price:10999, image:"/static/images/iphone_13.jpeg", condition:"new" },
+      { name:"iPhone 14", specs:"128GB", price:13499, image:"/static/images/iphone_14.jpeg", condition:"new" },
+      { name:"iPhone 15", specs:"128GB", price:15199, image:"/static/images/iphone_15.jpeg", condition:"new" },
+      { name:"iPhone 16", specs:"256GB", price:16499, image:"/static/images/iphone_16.jpeg", condition:"new" },
+      { name:"iPhone 17", specs:"512GB", price:18999, image:"/static/images/iphone_17.jpeg", condition:"new" }
+    ];
+
+    const container = document.getElementById("productsContainer");
+    const cartCount = document.getElementById("cart-count");
+
+    function renderProducts(list) {
+      container.innerHTML = "";
+      list.forEach((product) => {
+        const col = document.createElement("div");
+        col.className = "col-md-4";
+        col.innerHTML = `
+          <div class="product-card" data-aos="fade-up">
+            <img src="${product.image}" alt="${product.name}">
+            <h5>${product.name}</h5>
+            <p>${product.specs}</p>
+            <div class="price">R${product.price.toLocaleString()}</div>
+            <p><span class="badge bg-${product.condition === 'new' ? 'success' : 'secondary'}">
+              ${product.condition === 'new' ? 'Brand New' : 'Pre-Owned'}
+            </span></p>
+            <button class="btn-buy" onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">
+              Add To Cart
+            </button>
+          </div>`;
+        container.appendChild(col);
+      });
+    }
+
+    renderProducts(products);
+
+    function filterProducts(condition, event) {
+      document.querySelectorAll(".filter-buttons button").forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+
+      if (condition === "all") renderProducts(products);
+      else renderProducts(products.filter(p => p.condition === condition));
+    }
+
+    function addToCart(name, price, image) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price, image });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount(true);
+    }
+
+    function updateCartCount(animate = false) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cartCount.textContent = cart.length;
+      if (animate) {
+        cartCount.style.animation = "pop 0.3s ease";
+        setTimeout(() => cartCount.style.animation = "", 300);
+      }
+    }
+
+    updateCartCount();
+  </script>
+</body>
+</html>

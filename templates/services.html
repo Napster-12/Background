@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  
+  <!-- ✅ Google AdSense: include ONCE only -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6169339058146128"
+     crossorigin="anonymous"></script>
+
+  <title>Our Services - FAYA Tech</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- AOS & Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #007bff;
+      --secondary: #00d4ff;
+      --accent: #ff5c8d;
+      --dark: #0a2342;
+      --light: #f7f9fb;
+      --transition: all 0.35s ease;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .navbar-brand { font-weight: 700; color: var(--dark); font-size: 1.6rem; }
+    .nav-link { color: #333 !important; font-weight: 600; margin: 0 8px; }
+    .nav-link:hover, .nav-link.active { color: var(--primary) !important; }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60vh;
+      background: linear-gradient(120deg, var(--primary) 50%, var(--secondary) 50%);
+      color: white;
+      text-align: center;
+      flex-direction: column;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      background: linear-gradient(90deg, #fff, #cce4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+    .hero p { font-size: 1.1rem; max-width: 600px; color: #eaf6ff; }
+
+    @keyframes fadeInUp { from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);} }
+
+    /* Services Section */
+    .services { padding: 100px 20px; }
+    .services h2 { text-align:center; margin-bottom:60px; font-family: 'Playfair Display', serif; color: var(--dark); }
+    .service-card {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 40px 25px;
+      text-align: center;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      background: linear-gradient(180deg, var(--secondary), var(--primary));
+      color: white;
+    }
+    .service-card i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+    .service-card:hover i { color: white; }
+    .service-card h5 { font-weight: 700; margin-bottom: 10px; }
+    .service-card p, .service-card ul { font-size: 0.95rem; color: inherit; text-align: left; padding-left: 0; margin-bottom: 0; }
+    .service-card ul li { margin-bottom: 5px; }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 90px 20px;
+      background: var(--light);
+    }
+    .cta h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dark); margin-bottom: 15px; }
+    .cta p { color: #555; max-width: 600px; margin: 0 auto 25px; }
+    .cta .btn { background: linear-gradient(90deg, var(--primary), var(--secondary)); color:white; border:none; border-radius:999px; padding:12px 30px; font-weight:600; transition: var(--transition); }
+    .cta .btn:hover { background: var(--accent); }
+
+    /* Footer */
+    footer { background: var(--dark); color: #ccc; text-align:center; padding:50px 0 20px; }
+    footer a { color: var(--secondary); margin: 0 10px; transition: var(--transition); }
+    footer a:hover { color:white; }
+
+    @media(max-width: 991px){ .hero { min-height: 40vh; } }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">FAYA Tech</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+         
+          <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">About</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" data-aos="fade-up">
+    <h1>Our Professional Services</h1>
+    <p>We deliver top-tier digital and retail solutions designed to elevate your business and simplify your tech needs.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <h2 data-aos="fade-up">What We Offer</h2>
+
+      <!-- ✅ Google AdSense Display Ad -->
+      <div style="text-align:center; margin-bottom:40px;">
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center;"
+             data-ad-client="ca-pub-6169339058146128"
+             data-ad-slot="1938618495"  <!-- replace this with your actual ad slot -->
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <i class="bi bi-laptop"></i>
+            <h5>Website Development</h5>
+            <p>We create modern, responsive websites tailored to your business goals.</p>
+            <ul>
+              <li>Custom Web Design</li>
+              <li>SEO Optimization</li>
+              <li>Hosting & Domain Setup</li>
+              <li>Maintenance & Updates</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <i class="bi bi-phone"></i>
+            <h5>Application Development</h5>
+            <p>Build powerful mobile and web apps that deliver exceptional UX and performance.</p>
+            <ul>
+              <li>iOS & Android Apps</li>
+              <li>Progressive Web Apps</li>
+              <li>API Integration</li>
+              <li>UI/UX Design</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card">
+            <i class="bi bi-phone-fill"></i>
+            <h5>iPhone Sales</h5>
+            <p>Explore the latest iPhone models with guaranteed authenticity and best prices.</p>
+            <ul>
+              <li>Brand New & Pre-Owned</li>
+              <li>Trade-In Options</li>
+              <li>Warranty & Support</li>
+              <li>Secure Online Purchase</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-card">
+            <i class="bi bi-gear-wide-connected"></i>
+            <h5>IT Consulting & Strategy</h5>
+            <p>Align your IT infrastructure with your business goals — from cloud migration to security.</p>
+            <ul>
+              <li>Digital Transformation</li>
+              <li>Cloud Strategy (Azure / AWS)</li>
+              <li>Cybersecurity Best Practices</li>
+              <li>Infrastructure Planning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-card">
+            <i class="bi bi-tools"></i>
+            <h5>Device Maintenance & Support</h5>
+            <p>Keep your tech running smoothly with our expert repair and maintenance services.</p>
+            <ul>
+              <li>iPhone Repairs</li>
+              <li>Battery & Screen Replacement</li>
+              <li>Software Troubleshooting</li>
+              <li>Data Backup & Recovery</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-card">
+            <i class="bi bi-cloud-arrow-up"></i>
+            <h5>Cloud & Hosting Solutions</h5>
+            <p>Reliable, scalable, and secure cloud hosting services to support your websites and apps.</p>
+            <ul>
+              <li>Cloud Hosting</li>
+              <li>Database Management</li>
+              <li>Server Deployment</li>
+              <li>24/7 Uptime Monitoring</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" data-aos="fade-up">
+    <h3>Let’s Bring Your Tech Vision to Life</h3>
+    <p>Contact us today and let FAYA Tech craft the perfect digital solution for your needs.</p>
+    <a href="mailto:napster.cc12@gmail.com" class="btn">Get a Quote</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FAYA Tech. All rights reserved.</p>
+    <p><a href="/">Home</a> • <a href="/menu">iPhones</a> • <a href="/contact">About</a></p>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({once:true});</script>
+</body>
+</html>

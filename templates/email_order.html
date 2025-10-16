@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAYA Tech Order Confirmation</title>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f7f9fb;
+        margin: 0;
+        padding: 0;
+        color: #0a2342;
+    }
+    .container {
+        max-width: 700px;
+        margin: 30px auto;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+    h1, h2, h3, h4 {
+        color: #1E90FF;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 5px 0;
+        color: #222222;
+    }
+    .order-details {
+        margin-top: 20px;
+    }
+    .order-item {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+    .order-item:last-child {
+        border-bottom: none;
+    }
+    .order-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-right: 15px;
+    }
+    .order-item-info {
+        flex: 1;
+    }
+    .order-item-info h4 {
+        margin: 0 0 5px 0;
+        font-size: 1rem;
+        color: #1E90FF;
+    }
+    .order-item-info p {
+        margin: 2px 0;
+        font-size: 0.85rem;
+        color: #555;
+    }
+    .price {
+        font-weight: 700;
+        color: #FF6B81;
+        font-size: 1rem;
+    }
+    .summary {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 2px solid #ddd;
+    }
+    .summary p {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+    .delivery-info {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        background: #f0f8ff;
+        padding: 12px;
+        border-radius: 12px;
+        color: #0a2342;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.85rem;
+        color: #777;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Thank you for your order!</h1>
+    <p>Hi {{ name }},</p>
+    <p>Your order has been successfully placed. Below are the details of your purchase:</p>
+
+    <div class="order-details">
+        {% for item in cart %}
+        <div class="order-item">
+            <img src="{{ item.image }}" alt="{{ item.name }}">
+            <div class="order-item-info">
+                <h4>{{ item.name }}</h4>
+                <p>{{ item.specs }}</p>
+                <p>Quantity: {{ item.get('quantity', 1) }}</p>
+            </div>
+            <div class="price">R{{ "{:,.2f}".format(item.price * item.get('quantity', 1)) }}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="summary">
+        <p><span>Subtotal:</span><span>R{{ "{:,.2f}".format(subtotal) }}</span></p>
+        <p><span>Delivery Fee:</span><span>R100.00</span></p>
+        <p><strong><span>Total:</span><span>R{{ "{:,.2f}".format(total) }}</span></strong></p>
+    </div>
+
+    <div class="delivery-info">
+        <h4>Delivery Details</h4>
+        <p>Full Name: {{ name }}</p>
+        <p>Email: {{ email }}</p>
+        <p>Phone: {{ phone }}</p>
+        <p>Address: {{ address }}, {{ city }}, {{ postal }}</p>
+        <p>Country: {{ country }}</p>
+        <p><strong>Estimated Delivery: 3-5 business days</strong></p>
+    </div>
+
+    <p>We will contact you if there are any updates regarding your order.</p>
+
+    <div class="footer">
+        &copy; 2025 FAYA Tech Store. All rights reserved.
+    </div>
+</div>
+</body>
+</html>
